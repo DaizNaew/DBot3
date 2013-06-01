@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package net.daiznaew.dbot3.Listeners;
 
 import java.util.List;

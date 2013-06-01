@@ -18,12 +18,12 @@ public class ErrorMessages
 
     public static void invalidNumber(Channel channel, User user)
     {
-        Messages.respond(channel, ColorFormat.ERROR, user, "One or more of those numbers is invalid, retard!");
+        Messages.respond(channel, ColorFormat.ERROR, user, "It seems you have input the wrong arguments!");
     }
 
     public static void invalidOperation(Channel channel, User user)
     {
-        Messages.respond(channel, ColorFormat.ERROR, user, "That operation is invalid, retard!");
+        Messages.respond(channel, ColorFormat.ERROR, user, "I simply cannot do this!");
     }
 
     public static void invalidQuoteUsage(Channel channel, User user)

@@ -8,6 +8,7 @@ import org.pircbotx.PircBotX;
 import net.daiznaew.dbot3.util.references.References;
 import net.daiznaew.dbot3.Listeners.Commands.Calculator;
 import net.daiznaew.dbot3.Listeners.TwitterFeed;
+import net.daiznaew.dbot3.Listeners.Commands.DegreesCalc;
 /**
  *
  * @author Daiz
@@ -58,6 +59,7 @@ public class DaizBot
             bot.getListenerManager().addListener(new Help());
             bot.getListenerManager().addListener(new Calculator());
             bot.getListenerManager().addListener(new TwitterFeed());
+            bot.getListenerManager().addListener(new DegreesCalc());
             
             for (String channel : channels){
                 bot.joinChannel(channel);
