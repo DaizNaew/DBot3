@@ -50,6 +50,11 @@ public class ErrorMessages
     {
         Messages.respond(channel, ColorFormat.ERROR, user, "Couldn't find the player &b'" + player + "'");
     }
+    
+    public static void notFoundUser(Channel channel, User user, String player)
+    {
+        Messages.respond(channel, ColorFormat.ERROR, user, "Couldn't find the user &b'" + player + "'");
+    }
 
     public static void notHighEnoughAccessLevel(Channel channel, User user)
     {

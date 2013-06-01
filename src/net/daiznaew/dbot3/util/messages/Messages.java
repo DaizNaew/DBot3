@@ -77,4 +77,9 @@ public class Messages
     {
         DaizBot.getBot().sendNotice(user, convertColors(format, message));
     }
+    
+    public static void sendAction(User user, String action)
+    {
+        DaizBot.getBot().sendAction(user, action);
+    }
 }
