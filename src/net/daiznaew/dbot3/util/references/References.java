@@ -21,9 +21,11 @@ public class References
     public static final String LINE_STRING = "---------------------------------------------------";
     public static final String MASTER = "bux";
     
-    public static final String ACCESS_TOKEN = "205717291-E6J1E9NJR7HnC7YJQIq8yIbFa3Mh81tyyFg8Hz3X";
-    public static final String ACCESS_TOKEN_SECRET = "EHO2o4XqPDKrOBzvBIocj35QKqVaROBfFb5NtZM4c";
-    public static final String CONSUMER_KEY = "S4vXPZntaXK4pVLOJhoL3w";
-    public static final String CONSUMER_SECRET = "UTiSOcq10KoDR6Ch4HCj83V40ollhzzQc9wmOVRK7M";
+    public static final String ACCESS_TOKEN = "205717291-ntOgbwvD664Kc7ZW5i3DQ3EmmyxgMfGaJus2I";
+    public static final String ACCESS_TOKEN_SECRET = "KuZFvDdiG5wMANL5ewrdHz0P3efLWTQMXhxOVbGWhxo";
+    public static final String CONSUMER_KEY = "Q0GkGQLtmT3y65FisIkduQ";
+    public static final String CONSUMER_SECRET = "33Mfosuo5EMsZd6oSnGOvqhU0zrncJIxCUh7uts9rAo";
+    
+    public static final String PACK_DOWNLOAD = "http://www.technicpack.net/api/modpack/thispackwillbegone";
     
 }

@@ -10,6 +10,7 @@ import net.daiznaew.dbot3.Listeners.Commands.Calculator;
 import net.daiznaew.dbot3.Listeners.TwitterFeed;
 import net.daiznaew.dbot3.Listeners.Commands.DegreesCalc;
 import net.daiznaew.dbot3.Listeners.Commands.Tweeting;
+import net.daiznaew.dbot3.Listeners.Commands.PackLink;
 /**
  *
  * @author Daiz
@@ -62,6 +63,7 @@ public class DaizBot
             bot.getListenerManager().addListener(new TwitterFeed());
             bot.getListenerManager().addListener(new DegreesCalc());
             bot.getListenerManager().addListener(new Tweeting());
+            bot.getListenerManager().addListener(new PackLink());
             
             for (String channel : channels){
                 bot.joinChannel(channel);
