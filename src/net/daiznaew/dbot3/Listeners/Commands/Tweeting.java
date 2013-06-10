@@ -4,7 +4,7 @@
  */
 package net.daiznaew.dbot3.Listeners.Commands;
 
-import net.daiznaew.dbot3.listeners.core.BotCommand;
+import net.daiznaew.dbot3.Listeners.core.BotCommand;
 import net.daiznaew.dbot3.util.enums.AccessLevel;
 import net.daiznaew.dbot3.util.enums.ColorFormat;
 import net.daiznaew.dbot3.util.references.References;
@@ -60,8 +60,8 @@ public class Tweeting extends BotCommand {
                 
                 Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Twitter updated successfully!");
            
-                }
-                else showUsage();
+                } else { showUsage();
             }
         }
     }
+}

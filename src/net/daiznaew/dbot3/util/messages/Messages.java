@@ -78,6 +78,11 @@ public class Messages
         DaizBot.getBot().sendNotice(user, convertColors(format, message));
     }
     
+    public static void sendQuery(ColorFormat format, User user, String message)
+    {
+        DaizBot.getBot().sendMessage(user, convertColors(format, message));
+    }
+    
     public static void sendAction(User user, String action)
     {
         DaizBot.getBot().sendAction(user, action);

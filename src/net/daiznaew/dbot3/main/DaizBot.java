@@ -1,23 +1,26 @@
 
 package net.daiznaew.dbot3.main;
 
-import net.daiznaew.dbot3.listeners.core.Help;
-import net.daiznaew.dbot3.Listeners.Messages;
 import org.pircbotx.Channel;
 import org.pircbotx.PircBotX;
 import net.daiznaew.dbot3.util.references.References;
 import net.daiznaew.dbot3.Listeners.Commands.Calculator;
 import net.daiznaew.dbot3.Listeners.TwitterFeed;
 import net.daiznaew.dbot3.Listeners.Commands.DegreesCalc;
+import net.daiznaew.dbot3.Listeners.Commands.Help;
 import net.daiznaew.dbot3.Listeners.Commands.Tweeting;
 import net.daiznaew.dbot3.Listeners.Commands.PackLink;
+import net.daiznaew.dbot3.Listeners.core.BotCommand;
+import net.daiznaew.dbot3.util.references.CommandReferences;
+import org.pircbotx.hooks.ListenerAdapter;
 /**
  *
  * @author Daiz
  */
 public class DaizBot 
 {
-    
+
+        
     public static PircBotX bot = new PircBotX(); 
         
     private static String[] channels = { References.CHANNELS_MAIN };
@@ -31,7 +34,15 @@ public class DaizBot
         return bot;
     }
     
-        public static Channel[] getChannels()
+    public static void addListeners()
+    {
+        for (BotCommand command : CommandReferences.commands)
+        {
+            bot.getListenerManager().addListener(command);
+        }
+    }
+    
+    public static Channel[] getChannels()
     {
         Channel[] returnValue = new Channel[channels.length];
         
@@ -57,13 +68,7 @@ public class DaizBot
             bot.connect(References.NETWORK_NAME);
             bot.identify(References.BOT_PASSWORD);
             
-            bot.getListenerManager().addListener(new Messages());
-            bot.getListenerManager().addListener(new Help());
-            bot.getListenerManager().addListener(new Calculator());
-            bot.getListenerManager().addListener(new TwitterFeed());
-            bot.getListenerManager().addListener(new DegreesCalc());
-            bot.getListenerManager().addListener(new Tweeting());
-            bot.getListenerManager().addListener(new PackLink());
+            addListeners();
             
             for (String channel : channels){
                 bot.joinChannel(channel);

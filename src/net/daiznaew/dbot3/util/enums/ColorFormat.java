@@ -28,7 +28,7 @@ public enum ColorFormat
      * LIGHT_GRAY &16
      */
     
-    NORMAL("&1&r&5"),  // Red text on white background
+    NORMAL("&13"),  // Blue text text
     QUOTE("&12&r&3"),  // Dark blue text on cyan background
     ERROR("&5&r&1"),   // White text on red background
     CASINO("&1&r&14"), 

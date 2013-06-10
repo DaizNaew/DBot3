@@ -2,7 +2,7 @@ package net.daiznaew.dbot3.util.enums;
 
 
 import net.daiznaew.dbot3.main.DaizBot;
-import net.daiznaew.dbot3.listeners.core.BotCommand;
+import net.daiznaew.dbot3.Listeners.core.BotCommand;
 import org.pircbotx.Channel;
 import org.pircbotx.User;
 

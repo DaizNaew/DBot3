@@ -1,10 +1,11 @@
-package net.daiznaew.dbot3.listeners.core;
+package net.daiznaew.dbot3.Listeners.core;
 
 import net.daiznaew.dbot3.util.enums.AccessLevel;
 import net.daiznaew.dbot3.util.enums.ColorFormat;
 import net.daiznaew.dbot3.util.messages.ErrorMessages;
 import net.daiznaew.dbot3.util.messages.Messages;
 import java.util.ArrayList;
+import net.daiznaew.dbot3.util.references.CommandReferences;
 import org.pircbotx.Channel;
 import org.pircbotx.PircBotX;
 import org.pircbotx.User;
@@ -37,6 +38,15 @@ public abstract class BotCommand extends ListenerAdapter<PircBotX>
     public ArrayList<String> getAliases()
     {
         return aliases;
+    }
+    
+    public static BotCommand getCommand(String command)
+    {
+        for (BotCommand botCommand : CommandReferences.getCommands())
+        {
+            if (botCommand.isAlias(command)) return botCommand;
+        }
+        return null;
     }
 
     public String getAliasesString()

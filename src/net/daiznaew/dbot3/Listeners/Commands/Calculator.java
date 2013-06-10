@@ -6,7 +6,7 @@ package net.daiznaew.dbot3.Listeners.Commands;
 
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.events.MessageEvent;
-import net.daiznaew.dbot3.listeners.core.BotCommand;
+import net.daiznaew.dbot3.Listeners.core.BotCommand;
 import net.daiznaew.dbot3.util.enums.ColorFormat;
 import net.daiznaew.dbot3.util.enums.AccessLevel;
 import net.daiznaew.dbot3.util.messages.ErrorMessages;
