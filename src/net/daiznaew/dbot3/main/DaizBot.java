@@ -4,15 +4,9 @@ package net.daiznaew.dbot3.main;
 import org.pircbotx.Channel;
 import org.pircbotx.PircBotX;
 import net.daiznaew.dbot3.util.references.References;
-import net.daiznaew.dbot3.Listeners.Commands.Calculator;
-import net.daiznaew.dbot3.Listeners.TwitterFeed;
-import net.daiznaew.dbot3.Listeners.Commands.DegreesCalc;
-import net.daiznaew.dbot3.Listeners.Commands.Help;
-import net.daiznaew.dbot3.Listeners.Commands.Tweeting;
-import net.daiznaew.dbot3.Listeners.Commands.PackLink;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
 import net.daiznaew.dbot3.util.references.CommandReferences;
-import org.pircbotx.hooks.ListenerAdapter;
+
 /**
  *
  * @author Daiz
