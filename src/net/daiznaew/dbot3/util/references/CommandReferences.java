@@ -8,6 +8,7 @@ import net.daiznaew.dbot3.Listeners.Commands.Calculator;
 import net.daiznaew.dbot3.Listeners.Commands.DegreesCalc;
 import net.daiznaew.dbot3.Listeners.Commands.Help;
 import net.daiznaew.dbot3.Listeners.Commands.PackLink;
+import net.daiznaew.dbot3.Listeners.Commands.Site;
 import net.daiznaew.dbot3.Listeners.Commands.Tweeting;
 import net.daiznaew.dbot3.Listeners.TwitterFeed;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
@@ -24,8 +25,9 @@ public class CommandReferences {
     public static Tweeting commandTweeting = new Tweeting();
     public static TwitterFeed commandTwitterFeed = new TwitterFeed();
     public static Help commandHelp = new Help();
+    public static Site commandSite = new Site();
     
-    public static BotCommand[] commands = {commandCalculate, commandDegreesCalc, commandPackLink, commandTweeting, commandTwitterFeed, commandHelp };
+    public static BotCommand[] commands = {commandCalculate, commandDegreesCalc, commandPackLink, commandTweeting, commandTwitterFeed, commandHelp, commandSite };
     
     public static BotCommand[] getCommands()
     {

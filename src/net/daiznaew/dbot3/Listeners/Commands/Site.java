@@ -39,10 +39,9 @@ public class Site extends BotCommand
             {
                 Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "All of the server info can be found on our website, at:");
                 Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "http://www.snaiperskaya.net");
+            } else {
+                showUsage();
             }
-        
-        } else {
-            showUsage();
         }
     }
 }

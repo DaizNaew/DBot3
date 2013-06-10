@@ -31,7 +31,7 @@ public enum ColorFormat
     NORMAL("&13"),  // Blue text text
     QUOTE("&12&r&3"),  // Dark blue text on cyan background
     ERROR("&5&r&1"),   // White text on red background
-    CASINO("&1&r&14"), 
+    CASINO("&1&r&14"),
     POLL("&1&r&11");
     
     private ColorFormat(String format)
