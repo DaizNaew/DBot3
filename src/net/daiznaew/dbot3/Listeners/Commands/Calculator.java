@@ -24,7 +24,7 @@ public class Calculator extends BotCommand {
         getAliases().add("!calculate");
         getAliases().add("!calc");
         
-        setMinAccessLevel(AccessLevel.VOICE);
+        setMinAccessLevel(AccessLevel.NORMAL);
 
         setDescription("A simple calculator");
 

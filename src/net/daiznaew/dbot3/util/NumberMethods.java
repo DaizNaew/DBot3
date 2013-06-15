@@ -67,16 +67,4 @@ public class NumberMethods
         return i + low;
     }
     
-    public static int roll(int min, int max)
-    {
-        boolean negativeInvolved = min < 0 || max < 0;
-
-        if (!negativeInvolved && min > max || negativeInvolved && min < max)
-        {
-            return -1;
-        }
-        
-        if (negativeInvolved) return negativeRandom(min, max);
-        else return (min + (int) (Math.random() * ((max - min) + 1)));
-    }
 }
