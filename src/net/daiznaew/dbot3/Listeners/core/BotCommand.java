@@ -94,11 +94,6 @@ public abstract class BotCommand extends ListenerAdapter<PircBotX>
         return false;
     }
 
-    public boolean isWorksWhenDeactivated()
-    {
-        return worksWhenDeactivated;
-    }
-
     @Override
     public abstract void onMessage(MessageEvent<PircBotX> event) throws Exception;
 

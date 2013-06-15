@@ -20,11 +20,11 @@ public class References
     public static final String BOT_VERSION = "3.0";
     public static final String LINE_STRING = "---------------------------------------------------";
     
-    public static final String ACCESS_TOKEN = "x";
-    public static final String ACCESS_TOKEN_SECRET = "x";
-    public static final String CONSUMER_KEY = "x";
-    public static final String CONSUMER_SECRET = "x";
+    public static final String ACCESS_TOKEN = "205717291-ntOgbwvD664Kc7ZW5i3DQ3EmmyxgMfGaJus2I";
+    public static final String ACCESS_TOKEN_SECRET = "KuZFvDdiG5wMANL5ewrdHz0P3efLWTQMXhxOVbGWhxo";
+    public static final String CONSUMER_KEY = "Q0GkGQLtmT3y65FisIkduQ";
+    public static final String CONSUMER_SECRET = "33Mfosuo5EMsZd6oSnGOvqhU0zrncJIxCUh7uts9rAo";
     
-    public static final String PACK_DOWNLOAD = "x";
+    public static final String PACK_DOWNLOAD = "http://www.technicpack.net/api/modpack/thispackwillbegone";
     
 }
