@@ -54,10 +54,6 @@ public class CommandCore extends BotCommand
                         DaizBot.getBot().ban(getChannel(), hostMask);
                         DaizBot.getBot().kick(event.getChannel(), user, argument);
                         break;
-                        
-                    default:
-                        ErrorMessages.notHighEnoughAccessLevel(getChannel(), getUser());
-                        break;
                 }
             }
             
@@ -91,21 +87,7 @@ public class CommandCore extends BotCommand
                         Channel channel = DaizBot.getBot().getChannel(operable);
                         DaizBot.bot.partChannel(channel);
                         break;
-                        
-                    default:
-                        ErrorMessages.notHighEnoughAccessLevel(getChannel(), getUser());
-                        break;
-                }
-            }
-            
-            if (getArgs().length == 3)
-            {
-                String operation = getArgs()[1];
-                String operable = getArgs()[2];
-                User user = DaizBot.getBot().getUser(operable);
-                
-                switch (operation)
-                {
+                    
                     case "op":
                         DaizBot.bot.op(event.getChannel(), user);
                     break;
@@ -117,10 +99,6 @@ public class CommandCore extends BotCommand
                     case "voice":
                         DaizBot.bot.voice(event.getChannel(), user);
                         break;
-                        
-                    default:
-                            ErrorMessages.incalidUser(getChannel(), getUser());
-                            break;
                 }
             }
             
@@ -133,12 +111,8 @@ public class CommandCore extends BotCommand
                     case "leave":
                         DaizBot.bot.partChannel(event.getChannel());
                         break;
-                        
-                    default:
-                        ErrorMessages.notHighEnoughAccessLevel(getChannel(), getUser());
-                        break;
                 }
-            } else { showUsage(); }
+            }
         } 
     }
 
