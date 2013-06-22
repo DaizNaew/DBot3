@@ -7,8 +7,8 @@ package net.daiznaew.dbot3.Listeners.Commands;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
 import net.daiznaew.dbot3.util.enums.AccessLevel;
 import net.daiznaew.dbot3.util.enums.ColorFormat;
-import net.daiznaew.dbot3.util.references.References;
 import net.daiznaew.dbot3.util.messages.Messages;
+import net.daiznaew.dbot3.util.twitter.TwitterReferences;
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.events.MessageEvent;
 import twitter4j.*;
@@ -41,10 +41,10 @@ public class Tweeting extends BotCommand {
 
         ConfigurationBuilder builder = new ConfigurationBuilder();
         
-    	builder.setOAuthAccessToken(References.ACCESS_TOKEN);
-    	builder.setOAuthAccessTokenSecret(References.ACCESS_TOKEN_SECRET);
-    	builder.setOAuthConsumerKey(References.CONSUMER_KEY);
-    	builder.setOAuthConsumerSecret(References.CONSUMER_SECRET);
+    	builder.setOAuthAccessToken(TwitterReferences.ACCESS_TOKEN);
+    	builder.setOAuthAccessTokenSecret(TwitterReferences.ACCESS_TOKEN_SECRET);
+    	builder.setOAuthConsumerKey(TwitterReferences.CONSUMER_KEY);
+    	builder.setOAuthConsumerSecret(TwitterReferences.CONSUMER_SECRET);
 
         OAuthAuthorization auth = new OAuthAuthorization(builder.build());
         Twitter twitter = new TwitterFactory().getInstance(auth);
