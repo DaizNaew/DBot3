@@ -7,6 +7,7 @@ package net.daiznaew.dbot3.Listeners.Commands;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
 import net.daiznaew.dbot3.main.DaizBot;
 import net.daiznaew.dbot3.util.enums.AccessLevel;
+import org.pircbotx.Channel;
 import org.pircbotx.PircBotX;
 import org.pircbotx.User;
 import org.pircbotx.hooks.events.MessageEvent;
@@ -78,6 +79,10 @@ public class CommandCore extends BotCommand
                         
                     case "join":
                         DaizBot.bot.joinChannel(operable);
+                        break;
+                    case "leave":
+                        Channel channel = DaizBot.getBot().getChannel(operable);
+                        DaizBot.bot.partChannel(channel);
                         break;
                 }
             }
