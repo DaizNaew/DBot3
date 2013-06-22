@@ -16,6 +16,11 @@ public class ErrorMessages
     {
         Messages.respond(channel, ColorFormat.ERROR, user, "I simply cannot do this!");
     }
+    
+    public static void incalidUser(Channel channel, User user)
+    {
+        Messages.respond(channel, ColorFormat.ERROR, user, "User not found in channel.");
+    }
 
     public static void minOverMax(Channel channel, User user)
     {

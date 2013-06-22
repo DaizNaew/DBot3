@@ -7,6 +7,7 @@ package net.daiznaew.dbot3.Listeners.Commands;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
 import net.daiznaew.dbot3.main.DaizBot;
 import net.daiznaew.dbot3.util.enums.AccessLevel;
+import net.daiznaew.dbot3.util.messages.ErrorMessages;
 import org.pircbotx.Channel;
 import org.pircbotx.PircBotX;
 import org.pircbotx.User;
@@ -52,6 +53,11 @@ public class CommandCore extends BotCommand
                     case "kb":
                         DaizBot.getBot().ban(getChannel(), hostMask);
                         DaizBot.getBot().kick(event.getChannel(), user, argument);
+                        break;
+                        
+                    default:
+                        ErrorMessages.notHighEnoughAccessLevel(getChannel(), getUser());
+                        break;
                 }
             }
             
@@ -80,10 +86,41 @@ public class CommandCore extends BotCommand
                     case "join":
                         DaizBot.bot.joinChannel(operable);
                         break;
+                        
                     case "leave":
                         Channel channel = DaizBot.getBot().getChannel(operable);
                         DaizBot.bot.partChannel(channel);
                         break;
+                        
+                    default:
+                        ErrorMessages.notHighEnoughAccessLevel(getChannel(), getUser());
+                        break;
+                }
+            }
+            
+            if (getArgs().length == 3)
+            {
+                String operation = getArgs()[1];
+                String operable = getArgs()[2];
+                User user = DaizBot.getBot().getUser(operable);
+                
+                switch (operation)
+                {
+                    case "op":
+                        DaizBot.bot.op(event.getChannel(), user);
+                    break;
+                        
+                    case "hop":
+                        DaizBot.bot.halfOp(event.getChannel(), user);
+                        break;
+                        
+                    case "voice":
+                        DaizBot.bot.voice(event.getChannel(), user);
+                        break;
+                        
+                    default:
+                            ErrorMessages.incalidUser(getChannel(), getUser());
+                            break;
                 }
             }
             
@@ -95,6 +132,10 @@ public class CommandCore extends BotCommand
                     
                     case "leave":
                         DaizBot.bot.partChannel(event.getChannel());
+                        break;
+                        
+                    default:
+                        ErrorMessages.notHighEnoughAccessLevel(getChannel(), getUser());
                         break;
                 }
             } else { showUsage(); }
