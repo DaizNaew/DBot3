@@ -57,14 +57,14 @@ public class DegreesCalc extends BotCommand
                     {
                         case "F":
                             celsius = (num1 - A) / B;
-                            
                             Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), (celsius)+"C");
                             break;
+                            
                         case "C":
                             farenheit = num1 * B + A;
-                            
                             Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), (farenheit)+"F");
                             break;
+                            
                         default:
                             ErrorMessages.invalidOperation(getChannel(), getUser());
                             break;
