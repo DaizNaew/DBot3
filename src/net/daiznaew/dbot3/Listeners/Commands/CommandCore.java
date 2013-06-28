@@ -35,8 +35,10 @@ public class CommandCore extends BotCommand
         if (performGenericChecks(event.getChannel(), event.getUser(), event.getMessage().split(" ")))
         {
             
-            if (getArgs().length == 4)
+            if (getArgs().length >= 3)
             {
+                
+                
                 String operation = getArgs()[1];
                 String operable = getArgs()[2];
                 String argument = getArgs()[3];
@@ -99,6 +101,7 @@ public class CommandCore extends BotCommand
                     case "voice":
                         DaizBot.bot.voice(event.getChannel(), user);
                         break;
+                        
                 }
             }
             
