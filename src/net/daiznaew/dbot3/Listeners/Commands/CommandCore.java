@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package net.daiznaew.dbot3.Listeners.Commands;
 
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
@@ -17,6 +13,7 @@ import org.pircbotx.hooks.events.MessageEvent;
  *
  * @author Daiz
  */
+
 public class CommandCore extends BotCommand 
 {
 
@@ -24,7 +21,7 @@ public class CommandCore extends BotCommand
     {
         getAliases().add("!do");
         setMinAccessLevel(AccessLevel.HALFOP);        
-        setArgumentsString("<Action> <Operable>");
+        setArgumentsString("<Action> <Operable> <Optional Argument>");
         setDescription("This is the new core command center.");
     }
     
@@ -35,7 +32,7 @@ public class CommandCore extends BotCommand
         if (performGenericChecks(event.getChannel(), event.getUser(), event.getMessage().split(" ")))
         {
             
-            if (getArgs().length >= 3)
+            if (getArgs().length == 4)
             {
                 
                 
@@ -100,24 +97,21 @@ public class CommandCore extends BotCommand
                         
                     case "voice":
                         DaizBot.bot.voice(event.getChannel(), user);
-                        break;
-                        
+                        break;                        
                 }
             }
             
-            if (getArgs().length == 2)
-            {
-                String operation = getArgs()[1];
-                switch (operation)
+                if (getArgs().length == 2)
                 {
-                    
-                    case "leave":
-                        DaizBot.bot.partChannel(event.getChannel());
-                        break;
-                }
-            }
-        } 
-    }
+                    String operation = getArgs()[1];
+                    switch (operation)
+                    {
 
-    
-}
+                        case "leave":
+                            DaizBot.bot.partChannel(event.getChannel());
+                            break;
+                    }
+                }
+            } 
+        }
+    }

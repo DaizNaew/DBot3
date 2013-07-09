@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package net.daiznaew.dbot3.Listeners;
 
 import java.util.List;
@@ -20,6 +16,7 @@ import twitter4j.conf.ConfigurationBuilder;
  *
  * @author Daiz
  */
+
 public class TwitterFeed extends BotCommand 
 {
 
@@ -32,6 +29,7 @@ public class TwitterFeed extends BotCommand
         setDescription("This is used to pull the news from our twitter.");
         setArgumentsString("");
     }
+    
     Twitter twitter = TwitterFactory.getSingleton();
     
     @Override
@@ -52,10 +50,13 @@ public class TwitterFeed extends BotCommand
 
         OAuthAuthorization auth = new OAuthAuthorization(builder.build());
         Twitter twitter = new TwitterFactory().getInstance(auth);
+        
+        //defines the user to lookup
         String[] srch = new String[] {"DaizNaew"};
 
               ResponseList<User> users = twitter.lookupUsers(srch);
-              for (User user : users) {
+              for (User user : users) 
+              {
                     if (user.getStatus() != null)
                     {
                     List<Status> statuses = twitter.getUserTimeline(user.getName(), new Paging(1,1));
@@ -65,10 +66,7 @@ public class TwitterFeed extends BotCommand
                         }
                     }
               }
-            } else {
-                showUsage();
-            }
-            
+            } else { showUsage(); }            
         }
     }
 }
