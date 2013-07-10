@@ -36,18 +36,23 @@ public class ReadLog extends BotCommand {
         {
             if(getArgs().length == 2)
             {
+                //identifies the number for the log line
                 int linenum = Integer.valueOf(getArgs()[1]);
                 
+                //finds the text file to read
                 in = new BufferedReader(new FileReader("captainslogs.txt"));
                 
+                //this checks for the line we are requesting
                 while(linenum > 0)
                 {
                 read = in.readLine();
                 linenum--;
                 }
                 
+                //responds
                 Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Captain's Log: "+read+" Log ended.");
                 
+                //prepares for a new reading
                 in.close();
             }
         }
