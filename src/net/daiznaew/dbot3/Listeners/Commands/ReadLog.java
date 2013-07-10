@@ -1,4 +1,3 @@
-
 package net.daiznaew.dbot3.Listeners.Commands;
 
 import java.io.BufferedReader;
@@ -19,6 +18,7 @@ public class ReadLog extends BotCommand {
     
     BufferedReader in;
     String read;
+    String readnext;
     
     public ReadLog()
     {
@@ -36,24 +36,58 @@ public class ReadLog extends BotCommand {
         {
             if(getArgs().length == 2)
             {
-                //identifies the number for the log line
-                int linenum = Integer.valueOf(getArgs()[1]);
+                # Checks if "last" function is used. 
+                # This will allow the bot to run to the end of the log and report the last entry it finds. 
+                # Count is kept, so this should display the valid number of that entry.
                 
-                //finds the text file to read
-                in = new BufferedReader(new FileReader("captainslogs.txt"));
-                
-                //this checks for the line we are requesting
-                while(linenum > 0)
+                if(getArgs[1].equalsIgnoreCase("last"))
                 {
-                read = in.readLine();
-                linenum--;
+                    in = new BufferedReader(new FileReader("captainslogs.txt"));
+                    
+                    int linecount = 1; # Will be used to track entry numbers.
+                    
+                    readnext = in.readLine();
+                    read = "No entries found! Please make the Captain sit down and write something before we all die!!";
+                    
+                    while(readnext != null)
+                    {
+                        read = readnext;
+                        readnext = in.readLine(); # Always 1 line ahead, so it can be null
+                        linecount++;
+                    }
+                
+                    Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Captain's Log entry #" +linecount.toString()+ ": " +read+ " Log ended.");
+                
+                    in.close();
                 }
                 
-                //responds
-                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Captain's Log: "+read+" Log ended.");
+                # If not last, it will see what number the second argument is (if a number at all) and only accept those above 0.
+                # If a number is entered that is greater than the total number of entries, this should still stop at the last entry.
+                # Even if this does hit the last entry first, this should still report the accurate number of that entry.
                 
-                //prepares for a new reading
-                in.close();
+                else if(Integer.valueOf(getArgs()[1]) > 0))
+                {
+                    int linenum = Integer.valueOf(getArgs()[1]) - 1;
+                    
+                    in = new BufferedReader(new FileReader("captainslogs.txt"));
+                    
+                    int linecount = 1;
+                    
+                    readnext = in.readLine();
+                    read = "No entries found! Please make the Captain sit down and write something before we all die!!";
+                
+                    while(linenum > 0 && readnext != null)
+                    {
+                        read = readnext;
+                        readnext = in.readLine();
+                        linenum--;
+                        linecount++;
+                    }
+                
+                    Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Captain's Log entry #" +linecount.toString()+ ": " +read+ " Log ended.");
+                
+                    in.close();
+                }
             }
         }
     }
