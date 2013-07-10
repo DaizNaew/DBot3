@@ -1,9 +1,7 @@
 
 package net.daiznaew.dbot3.main;
 
-import org.pircbotx.Channel;
 import org.pircbotx.PircBotX;
-import net.daiznaew.dbot3.util.references.References;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
 import net.daiznaew.dbot3.util.Config;
 import net.daiznaew.dbot3.util.references.CommandReferences;
@@ -21,6 +19,7 @@ public class DaizBot
         //Initializing the channels to join
     private static String CHANNEL = Config.getProperty("channel");
     
+        //builds the strings from the config.
     private static String NAME = Config.getProperty("bname");
     private static String PASSWORD = Config.getProperty("bpassword");
     private static String USER = Config.getProperty("buname");
@@ -105,5 +104,4 @@ public class DaizBot
                 } 
             catch (Exception e){}
         }
-    private String channel;
 }

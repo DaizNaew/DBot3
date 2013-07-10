@@ -20,9 +20,12 @@ public class Config {
 
     private Config() 
     {
+        //need to add a lookup for existing file.
         configFile = new java.util.Properties();
-        try {
+        try 
+        {
     		//set the properties value
+                //this should obviously be null for release.
     		configFile.setProperty("website", "http://snaiperskaya.net");
                 configFile.setProperty("bpassword","dbotistrueforceofbux");
                 configFile.setProperty("bname","DBot3");
