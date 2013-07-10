@@ -83,14 +83,20 @@ public class ReadLog extends BotCommand {
                     int linecount = 1;
                     
                     readnext = in.readLine();
-                    read = "No entries found! Please make the Captain sit down and write something before we all die!!";
-                
-                    while(linenum > 0 && readnext != null)
+                    if(readnext == null)
+                    {
+                        read = "No entries found! Please make the Captain sit down and write something before we all die!!";
+                    }
+                    else
                     {
                         read = readnext;
-                        readnext = in.readLine();
-                        linenum--;
-                        linecount++;
+                        while(linenum > 0 && readnext != null)
+                        {
+                            read = readnext;
+                            readnext = in.readLine();
+                            linenum--;
+                            linecount++;
+                        }
                     }
                 
                     Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Captain's Log entry #" +linecount+ ": " +read+ "!Log ended!");
