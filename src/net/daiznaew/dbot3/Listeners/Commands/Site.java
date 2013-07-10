@@ -1,6 +1,7 @@
 package net.daiznaew.dbot3.Listeners.Commands;
 
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
+import net.daiznaew.dbot3.util.Config;
 import net.daiznaew.dbot3.util.enums.AccessLevel;
 import net.daiznaew.dbot3.util.enums.ColorFormat;
 import net.daiznaew.dbot3.util.messages.Messages;
@@ -15,6 +16,8 @@ import org.pircbotx.hooks.events.MessageEvent;
 
 public class Site extends BotCommand
 {
+    private final String sname;
+    
     public Site()
     {
         getAliases().add("!site");
@@ -22,6 +25,8 @@ public class Site extends BotCommand
         setMinAccessLevel(AccessLevel.NORMAL);
         setArgumentsString("");
         setDescription("This goes to our website.");
+        
+        sname = Config.getProperty("website");
     }
     
     @Override
@@ -33,7 +38,7 @@ public class Site extends BotCommand
             if (getArgs().length == 1)
             {
                 Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "All of the server info can be found on our website, at:");
-                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), References.WEBSITE);
+                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), sname);
             } else {
                 showUsage();
             }

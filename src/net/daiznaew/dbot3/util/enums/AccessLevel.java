@@ -3,6 +3,7 @@ package net.daiznaew.dbot3.util.enums;
 
 import net.daiznaew.dbot3.main.DaizBot;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
+import net.daiznaew.dbot3.util.Config;
 import org.pircbotx.Channel;
 import org.pircbotx.User;
 
@@ -18,6 +19,8 @@ import org.pircbotx.User;
 public enum AccessLevel
 {
     NORMAL(0, "&6Normal User"), VOICE(1, "&12Voiced User"), HALFOP(2, "&4Half Operator"), OP(3, "&8Operator"), SUPEROP(4, "&13Super Operator"), OWNER(5, "&5Owner");
+    
+    private static Channel CHANNEL = DaizBot.getBot().getChannel(Config.getProperty("channel"));
     
     private int level;
     private String string;
@@ -44,7 +47,7 @@ public enum AccessLevel
     {
         if (channel == null) 
         {
-            channel = DaizBot.getMainChannel();
+            channel = CHANNEL;
         }
         
         if (channel.isOwner(user)) 

@@ -5,6 +5,7 @@ import org.pircbotx.Channel;
 import org.pircbotx.PircBotX;
 import net.daiznaew.dbot3.util.references.References;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
+import net.daiznaew.dbot3.util.Config;
 import net.daiznaew.dbot3.util.references.CommandReferences;
 
 /**
@@ -18,18 +19,29 @@ public class DaizBot
     public static PircBotX bot = new PircBotX(); 
         
         //Initializing the channels to join
-    private static String[] channels = { References.CHANNELS_MAIN };
+    private static String CHANNEL = Config.getProperty("channel");
     
+    private static String NAME = Config.getProperty("bname");
+    private static String PASSWORD = Config.getProperty("bpassword");
+    private static String USER = Config.getProperty("buname");
+    private static String FINGER = Config.getProperty("bfinger");
+    private static String VERSION = Config.getProperty("bversion");
+    private static String NETWORK = Config.getProperty("network");
+    
+    //disabled until further notice
+   /* 
         //Caller to call the main channel of the bot
     public static Channel getMainChannel()
     {
         return bot.getChannel(References.CHANNELS_MAIN);
     }
+    */
         //Caller to call the main function
     public static PircBotX getBot()
     {
         return bot;
     }
+    
     
         //Add the classes to the listener
     public static void addListeners()
@@ -40,6 +52,7 @@ public class DaizBot
         }
     }
     
+    /*
         //Returns the amount of channels joined
     public static Channel[] getChannels()
     {
@@ -51,30 +64,34 @@ public class DaizBot
         
         return returnValue;
     }
+    */
         
             
         public static void main(String[] args) throws Exception 
         {
                 
                 //bot initializing main info
-            bot.setName(References.BOT_NAME);
+            bot.setName(NAME);
             bot.setVerbose(true);
             bot.setMessageDelay(500L);
-            bot.setLogin(References.BOT_USER_NAME);
-            bot.setVersion(References.BOT_VERSION);
-            bot.setFinger(References.BOT_FINGER);
+            bot.setLogin(USER);
+            bot.setVersion(VERSION);
+            bot.setFinger(FINGER);
             
                 //joining the IRC and identifying the bot
-            bot.connect(References.NETWORK_NAME);
-            bot.identify(References.BOT_PASSWORD);
+            bot.connect(NETWORK);
+            bot.identify(PASSWORD);
+            bot.joinChannel(CHANNEL);
             
                 //adds the listeners we already initialized to the main program, this will activate them.
             addListeners();
             
+            /*
                 //joins the channels specified in "reference" and in this class
             for (String channel : channels){
                 bot.joinChannel(channel);
             }
+            */
             
         }
         
@@ -88,4 +105,5 @@ public class DaizBot
                 } 
             catch (Exception e){}
         }
+    private String channel;
 }
