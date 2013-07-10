@@ -5,10 +5,12 @@
 package net.daiznaew.dbot3.util.references;
 
 import net.daiznaew.dbot3.Listeners.Commands.Calculator;
+import net.daiznaew.dbot3.Listeners.Commands.CaptainsLog;
 import net.daiznaew.dbot3.Listeners.Commands.CommandCore;
 import net.daiznaew.dbot3.Listeners.Commands.DegreesCalc;
 import net.daiznaew.dbot3.Listeners.Commands.Help;
 import net.daiznaew.dbot3.Listeners.Commands.PackLink;
+import net.daiznaew.dbot3.Listeners.Commands.ReadLog;
 import net.daiznaew.dbot3.Listeners.Commands.Site;
 import net.daiznaew.dbot3.Listeners.Commands.Tweeting;
 import net.daiznaew.dbot3.Listeners.TwitterFeed;
@@ -28,8 +30,10 @@ public class CommandReferences {
     public static Help commandHelp = new Help();
     public static Site commandSite = new Site();
     public static CommandCore commandCore = new CommandCore();
+    public static CaptainsLog commandLog = new CaptainsLog();
+    public static ReadLog commandReadLog = new ReadLog();
     
-    public static BotCommand[] commands = {commandCalculate, commandDegreesCalc, commandPackLink, commandTweeting, commandTwitterFeed, commandHelp, commandSite, commandCore };
+    public static BotCommand[] commands = {commandReadLog, commandLog, commandCalculate, commandDegreesCalc, commandPackLink, commandTweeting, commandTwitterFeed, commandHelp, commandSite, commandCore };
     
     public static BotCommand[] getCommands()
     {

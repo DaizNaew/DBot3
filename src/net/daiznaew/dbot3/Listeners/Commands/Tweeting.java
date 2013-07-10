@@ -34,7 +34,7 @@ public class Tweeting extends BotCommand {
     {
         if (performGenericChecks(event.getChannel(), event.getUser(), event.getMessage().split(" ")))
         {            
-            if (getArgs().length >= 1 )
+            if (getArgs().length >= 2 )
             {
 
         ConfigurationBuilder builder = new ConfigurationBuilder();

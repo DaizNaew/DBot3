@@ -1,0 +1,2 @@
+entry #1, Today is the first day of testing, everything seems to go well. 
+entry #2, Minor fixes has been applied, nothing major, just some random stuff to make it nicer. 
