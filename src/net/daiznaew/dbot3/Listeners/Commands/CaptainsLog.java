@@ -42,7 +42,7 @@ public class CaptainsLog extends BotCommand
             
             if (getArgs().length >= 2)
             {
-                
+                //this is just a copy of the tweeting class, but modified to work with write to file.
                 String quote = "";
                 
                 for (int i = 1; i < getArgs().length; i++)
@@ -50,10 +50,15 @@ public class CaptainsLog extends BotCommand
                     quote += getArgs()[i] + " ";
                 }
                 quote = quote.substring(0, quote.length());
+                
+                //finds the text to write to
                 out = new BufferedWriter(new FileWriter("captainslogs.txt",true));
                 
+                //writes the message
                 out.write(quote);
+                //goes to the next line on the text
                 out.newLine();
+                //prepares for a new write
                 out.close();
                 
             } else {showUsage();}
