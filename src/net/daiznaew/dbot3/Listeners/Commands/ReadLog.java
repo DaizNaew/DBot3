@@ -1,4 +1,3 @@
-
 package net.daiznaew.dbot3.Listeners.Commands;
 
 import java.io.BufferedReader;
@@ -19,6 +18,7 @@ public class ReadLog extends BotCommand {
     
     BufferedReader in;
     String read;
+    String readnext;
     
     public ReadLog()
     {
@@ -36,17 +36,24 @@ public class ReadLog extends BotCommand {
         {
             if(getArgs().length == 2)
             {
-                int linenum = Integer.valueOf(getArgs()[1]);
+                int linenum = Integer.valueOf(getArgs()[1]) + 1;
                 
                 in = new BufferedReader(new FileReader("captainslogs.txt"));
                 
-                while(linenum > 0)
+                int linecount = 1;
+                
+                readnext = in.readLine();
+                read = "No entries found! Please make the Captain sit down and write something before we all die!!";
+                
+                while(linenum > 0 && readnext != null)
                 {
-                read = in.readLine();
+                read = readnext;
+                readnext = in.readLine();
                 linenum--;
+                linecount++;
                 }
                 
-                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Captain's Log: "+read+" Log ended.");
+                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Captain's Log entry #" +linecount.toString()+ ": " +read+ " Log ended.");
                 
                 in.close();
             }
