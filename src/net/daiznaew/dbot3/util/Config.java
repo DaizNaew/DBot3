@@ -1,9 +1,7 @@
 package net.daiznaew.dbot3.util;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.Properties;
-import org.pircbotx.Channel;
 
 /**
  *
@@ -18,11 +16,42 @@ public class Config {
 
     private static Config instance;
 
-    private Config() 
+    public Config() 
     {
+        /* Here we will set up the config file for the mod 
+         * First: Create a folder inside the config folder
+         * Second: Create the actual config file
+         */
+        File file = new File(this.getLocation() + "/config");
+        file.mkdir();
+        Properties configFile = new Properties();
+
+        /* Some basic debugging will go a long way */
+        try
+        {
+            configFile.createNewFile();
+        }
+        catch (IOException e)
+        {
+            System.out.println("Could not create configuration file for TConstruct. Reason:");
+            System.out.println(e);
+        }
+
+        //Load the configuration file
+        configFile.load(configFile);
+        
+        //initialize default parameters
+        
+        // Save the config if not done
+        config.save();
+        
+    }
+        
+        /*
         //need to add a lookup for existing file.
         configFile = new java.util.Properties();
-        try 
+        
+        try
         {
     		//set the properties value
                 //this should obviously be null for release.
@@ -41,9 +70,9 @@ public class Config {
     	} catch (IOException ex) {
     		ex.printStackTrace();
         }
-        }
+        */
 
-    private String getValue(String key) 
+    private String getValue(String key)
     {
         return configFile.getProperty(key);
     }
@@ -53,5 +82,9 @@ public class Config {
         if (instance == null) instance = new Config();
         return instance.getValue(key);
     }
-
+    
+    private File getLocation()
+	{
+		return new File(".");
+	}
 }

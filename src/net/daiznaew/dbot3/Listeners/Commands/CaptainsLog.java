@@ -8,8 +8,10 @@ package net.daiznaew.dbot3.Listeners.Commands;
 
 import java.io.*;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
+import net.daiznaew.dbot3.main.DaizBot;
 import net.daiznaew.dbot3.util.enums.AccessLevel;
 import org.pircbotx.PircBotX;
+import org.pircbotx.User;
 import org.pircbotx.hooks.events.MessageEvent;
 
 /**
@@ -44,10 +46,11 @@ public class CaptainsLog extends BotCommand
             {
                 //this is just a copy of the tweeting class, but modified to work with write to file.
                 String quote = "";
+                User user = DaizBot.getBot().getUser(event.getUser().getNick());
                 
                 for (int i = 1; i < getArgs().length; i++)
                 {
-                    quote += getArgs()[i] + " ";
+                    quote += getArgs()[i] + " : Logged by : " + user;
                 }
                 quote = quote.substring(0, quote.length());
                 
