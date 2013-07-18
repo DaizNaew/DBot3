@@ -64,7 +64,7 @@ public class ReadLog extends BotCommand {
                     }
                     
                     
-                    Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Captain's Log entry #" +linecount+ ": " +read+ "Log ended.");
+                    Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Captain's Log entry #" +linecount+ ": " +read+ "!Log ended!");
                     in.close();
                 }
                 

@@ -46,11 +46,11 @@ public class CaptainsLog extends BotCommand
             {
                 //this is just a copy of the tweeting class, but modified to work with write to file.
                 String quote = "";
-                User user = DaizBot.getBot().getUser(event.getUser().getNick());
+                String user = event.getUser().getNick();
                 
                 for (int i = 1; i < getArgs().length; i++)
                 {
-                    quote += getArgs()[i] + " : Logged by : " + user;
+                    quote += getArgs()[i] + " ";
                 }
                 quote = quote.substring(0, quote.length());
                 
@@ -58,7 +58,7 @@ public class CaptainsLog extends BotCommand
                 out = new BufferedWriter(new FileWriter("captainslogs.txt",true));
                 
                 //writes the message
-                out.write(quote);
+                out.write(quote + " !Logged by: " + user +"! ");
                 //goes to the next line on the text
                 out.newLine();
                 //prepares for a new write
