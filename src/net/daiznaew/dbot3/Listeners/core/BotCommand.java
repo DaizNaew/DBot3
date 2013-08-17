@@ -44,6 +44,7 @@ public abstract class BotCommand extends ListenerAdapter<PircBotX>
         
         //initializing the accesslevel control and arguments control
     private AccessLevel minAccessLevel;
+    private AccessLevel maxAccessLevel;
     private String argumentsString;
 
         //gets the aliases for commands
@@ -97,6 +98,11 @@ public abstract class BotCommand extends ListenerAdapter<PircBotX>
     public AccessLevel getMinAccessLevel()
     {
         return minAccessLevel;
+    }
+    
+    public AccessLevel getMaxAccessLevel()
+    {
+        return maxAccessLevel;
     }
 
         //returns the user trying to use the command
@@ -168,6 +174,12 @@ public abstract class BotCommand extends ListenerAdapter<PircBotX>
     public void setMinAccessLevel(AccessLevel minAccessLevel)
     {
         this.minAccessLevel = minAccessLevel;
+    }
+    
+        //validates the access level to ignore for the command
+    public void setMaxAccessLevel(AccessLevel maxAccessLevel)
+    {
+        this.maxAccessLevel = maxAccessLevel;
     }
 
         //validates the user for the command

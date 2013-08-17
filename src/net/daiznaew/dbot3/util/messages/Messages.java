@@ -83,8 +83,8 @@ public class Messages
         DaizBot.getBot().sendMessage(user, convertColors(format, message));
     }
     
-    public static void sendAction(User user, String action)
+    public static void sendAction(String target, String action)
     {
-        DaizBot.getBot().sendAction(user, action);
+        DaizBot.getBot().sendAction(target, action);
     }
 }

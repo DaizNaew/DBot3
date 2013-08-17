@@ -42,6 +42,18 @@ public enum AccessLevel
             return false;
         }
     }
+    
+    public static boolean cantAccess(AccessLevel level, BotCommand command)
+    {
+        if (command.getMaxAccessLevel().getLevel() >= level.getLevel())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     public static AccessLevel getAccessLevel(Channel channel, User user)
     {

@@ -1,17 +1,14 @@
 /*
  * This was requested by snaiperskaya.
  * I bring him this because he is so kawaii desu~ <3
- * 
  */
 
 package net.daiznaew.dbot3.Listeners.Commands;
 
 import java.io.*;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
-import net.daiznaew.dbot3.main.DaizBot;
 import net.daiznaew.dbot3.util.enums.AccessLevel;
 import org.pircbotx.PircBotX;
-import org.pircbotx.User;
 import org.pircbotx.hooks.events.MessageEvent;
 
 /**
