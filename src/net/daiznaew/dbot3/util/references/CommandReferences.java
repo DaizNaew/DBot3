@@ -6,6 +6,7 @@ package net.daiznaew.dbot3.util.references;
 
 import net.daiznaew.dbot3.Listeners.Commands.Calculator;
 import net.daiznaew.dbot3.Listeners.Commands.CaptainsLog;
+import net.daiznaew.dbot3.Listeners.Commands.Celebration;
 import net.daiznaew.dbot3.Listeners.Commands.CommandCore;
 import net.daiznaew.dbot3.Listeners.Commands.DegreesCalc;
 import net.daiznaew.dbot3.Listeners.Commands.Help;
@@ -32,8 +33,9 @@ public class CommandReferences {
     public static CommandCore commandCore = new CommandCore();
     public static CaptainsLog commandLog = new CaptainsLog();
     public static ReadLog commandReadLog = new ReadLog();
+    public static Celebration commandCelebrate = new Celebration();
     
-    public static BotCommand[] commands = {commandReadLog, commandLog, commandCalculate, commandDegreesCalc, commandPackLink, commandTweeting, commandTwitterFeed, commandHelp, commandSite, commandCore };
+    public static BotCommand[] commands = {commandCelebrate, commandReadLog, commandLog, commandCalculate, commandDegreesCalc, commandPackLink, commandTweeting, commandTwitterFeed, commandHelp, commandSite, commandCore };
     
     public static BotCommand[] getCommands()
     {
