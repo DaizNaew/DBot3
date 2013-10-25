@@ -72,24 +72,6 @@ public class Messages
     {
         DaizBot.getBot().sendMessage(channel, convertColors(format, message));
     }
-    
-    public static void sendPrivMessage(User[] users, ColorFormat format, String message)   
-    {
-        for (User user : users)
-        {
-        sendPrivMessage(user, format, message);
-        }
-    }
-    
-    public static void sendPrivMessage(User user, String message)
-    {
-        DaizBot.getBot().sendMessage(user, message);
-    }
-    
-    public static void sendPrivMessage(User user, ColorFormat format, String message)
-    {
-        DaizBot.getBot().sendMessage(user, convertColors(format,message));
-    }
 
     public static void sendNotice(ColorFormat format, User user, String message)
     {
