@@ -85,6 +85,7 @@ public class DaizBot
                 //adds the listeners we already initialized to the main program, this will activate them.
             addListeners();
             
+                //code merged to config
             /*
                 //joins the channels specified in "reference" and in this class
             for (String channel : channels){
@@ -94,6 +95,9 @@ public class DaizBot
             
         }
         
+        
+        //unused code after this version.
+        /*
             //Used to call if we want to disconnect from IRC
         public static void disconnect()
         {
@@ -104,4 +108,6 @@ public class DaizBot
                 } 
             catch (Exception e){}
         }
+        */
+        
 }

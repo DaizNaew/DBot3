@@ -1,10 +1,12 @@
 package net.daiznaew.dbot3.Listeners.Commands;
 
+import javax.management.timer.Timer;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
 import net.daiznaew.dbot3.main.DaizBot;
 import net.daiznaew.dbot3.util.enums.AccessLevel;
 import net.daiznaew.dbot3.util.enums.ColorFormat;
 import net.daiznaew.dbot3.util.messages.Messages;
+import net.daiznaew.dbot3.util.Config;
 import org.pircbotx.Channel;
 import org.pircbotx.PircBotX;
 import org.pircbotx.User;
@@ -17,6 +19,7 @@ import org.pircbotx.hooks.events.MessageEvent;
 
 public class CommandCore extends BotCommand 
 {
+    private static String NETWORK = Config.getProperty("network");
 
     public CommandCore() 
     {
@@ -48,13 +51,13 @@ public class CommandCore extends BotCommand
                     
                     case "kick":
                         DaizBot.getBot().kick(event.getChannel(), user, argument);
-                        Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "http://i.imgur.com/OA3pP8l.jpg");
+                        Messages.sendNotice(ColorFormat.NORMAL, user, "http://i.imgur.com/OA3pP8l.jpg");
                         break;
                         
                     case "kb":
                         DaizBot.getBot().ban(getChannel(), hostMask);
                         DaizBot.getBot().kick(event.getChannel(), user, argument);
-                        Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "http://i.imgur.com/OA3pP8l.jpg");
+                        Messages.sendNotice(ColorFormat.NORMAL, user, "http://i.imgur.com/OA3pP8l.jpg");
                         break;
                 }
             }
@@ -71,7 +74,7 @@ public class CommandCore extends BotCommand
                     
                     case "kick":
                         DaizBot.getBot().kick(event.getChannel(), user);
-                        Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "http://i.imgur.com/OA3pP8l.jpg");
+                        Messages.sendNotice(ColorFormat.NORMAL, user, "http://i.imgur.com/OA3pP8l.jpg");
                         break;
                         
                     case "ban":
@@ -81,7 +84,7 @@ public class CommandCore extends BotCommand
                     case "kb":
                         DaizBot.getBot().ban(getChannel(), hostMask);
                         DaizBot.getBot().kick(event.getChannel(), user);
-                        Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "http://i.imgur.com/OA3pP8l.jpg");
+                        Messages.sendNotice(ColorFormat.NORMAL, user, "http://i.imgur.com/OA3pP8l.jpg");
                         break;
                         
                     case "join":
@@ -115,6 +118,11 @@ public class CommandCore extends BotCommand
                         case "leave":
                             DaizBot.bot.partChannel(event.getChannel());
                             break;
+                            
+                        case "stop":
+                            System.exit(1);
+                            break;
+                            
                     }
                 }
             } 

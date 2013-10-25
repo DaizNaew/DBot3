@@ -22,11 +22,13 @@ public class TwitterFeed extends BotCommand
 
     public TwitterFeed()
     {
-        getAliases().add("!news");       
+        getAliases().add("!news"); 
+        getAliases().add("!twitter");
         
         setMinAccessLevel(AccessLevel.NORMAL);   
         
         setDescription("This is used to pull the news from our twitter.");
+        
         setArgumentsString("");
     }
     
