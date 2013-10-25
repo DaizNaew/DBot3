@@ -47,7 +47,9 @@ public class Config {
 
     public static String getProperty(String key) 
     {
-        if (instance == null) instance = new Config();
+        if (instance == null) {
+            instance = new Config();
+        }
         return instance.getValue(key);
     }
 
