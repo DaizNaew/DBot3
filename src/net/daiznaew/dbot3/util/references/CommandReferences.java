@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package net.daiznaew.dbot3.util.references;
 
 import net.daiznaew.dbot3.Listeners.Commands.Calculator;

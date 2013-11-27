@@ -5,6 +5,7 @@ import org.pircbotx.PircBotX;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
 import net.daiznaew.dbot3.util.Config;
 import net.daiznaew.dbot3.util.references.CommandReferences;
+import org.pircbotx.Channel;
 
 /**
  *
@@ -28,13 +29,18 @@ public class DaizBot
     private static String NETWORK = Config.getProperty("network");
     
     //disabled until further notice
-   /* 
+    
+        //Test feature
+    private static String[] Channels = {"#snftb","#snterra"};
+    
+
+
         //Caller to call the main channel of the bot
     public static Channel getMainChannel()
     {
-        return bot.getChannel(References.CHANNELS_MAIN);
+        return bot.getChannel(Config.getProperty("channel"));
     }
-    */
+    
         //Caller to call the main function
     public static PircBotX getBot()
     {
@@ -85,13 +91,11 @@ public class DaizBot
                 //adds the listeners we already initialized to the main program, this will activate them.
             addListeners();
             
-                //code merged to config
-            /*
                 //joins the channels specified in "reference" and in this class
-            for (String channel : channels){
+            for (String channel : Channels){
                 bot.joinChannel(channel);
             }
-            */
+            
             
         }
         

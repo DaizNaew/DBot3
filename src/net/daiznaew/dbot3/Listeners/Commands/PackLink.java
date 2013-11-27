@@ -43,10 +43,27 @@ public class PackLink extends BotCommand
             {
                 Messages.sendQuery(ColorFormat.NORMAL, getUser(), "You'll need technic launcher to use our pack: http://www.technicpack.net/");
                 Messages.sendQuery(ColorFormat.NORMAL, getUser(), "Before running the pack, open the launcher settings (Upper-right corner) and select the amount of memory you wish to allocate, as well as check the box for \"Increase PermGen Size.\"");
-                Messages.sendQuery(ColorFormat.NORMAL, getUser(), "The platform link is: "+TwitterReferences.PACK_DOWNLOAD);
+                Messages.sendQuery(ColorFormat.NORMAL, getUser(), "Now that you're all ready, you can use <!pack UHS> for info on our UHS pack, or <!pack 3> for our new server pack.");        
             }
-            else {
-                showUsage();
+            
+            if (getArgs().length == 2)
+            {
+                String operation = getArgs()[1];
+                
+                        
+                
+                switch (operation) 
+                {
+                    
+                    case "UHS":
+                        Messages.sendQuery(ColorFormat.NORMAL, getUser(), "The platform link for our Legacy UHS server is: "+TwitterReferences.PACK_DOWNLOAD_UHS);
+                        break;
+                        
+                    case "3":
+                        Messages.sendQuery(ColorFormat.NORMAL, getUser(), "The platform link for our new 1.6.4 server is: "+TwitterReferences.PACK_DOWNLOAD_3);
+                        break;
+                    
+                }
             }
         }
     }
