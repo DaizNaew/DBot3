@@ -99,19 +99,4 @@ public class DaizBot
             
         }
         
-        
-        //unused code after this version.
-        /*
-            //Used to call if we want to disconnect from IRC
-        public static void disconnect()
-        {
-            try 
-                {
-                    bot.disconnect();
-                    System.exit(0);
-                } 
-            catch (Exception e){}
-        }
-        */
-        
 }

@@ -16,7 +16,7 @@ import org.pircbotx.hooks.events.MessageEvent;
 
 public class Site extends BotCommand
 {
-    private final String sname;
+    private final String WEBSITE;
     
     public Site()
     {
@@ -26,7 +26,7 @@ public class Site extends BotCommand
         setArgumentsString("");
         setDescription("This goes to our website.");
         
-        sname = Config.getProperty("website");
+        WEBSITE = Config.getProperty("website");
     }
     
     @Override
@@ -38,7 +38,7 @@ public class Site extends BotCommand
             if (getArgs().length == 1)
             {
                 Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "All of the server info can be found on our website, at:");
-                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), sname);
+                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), WEBSITE);
             } else {
                 showUsage();
             }
