@@ -13,11 +13,11 @@ import org.pircbotx.hooks.events.MessageEvent;
  * @author Daiz
  */
 
-public class Site extends BotCommand
+public class MapService extends BotCommand
 {
-    private final String WEBSITE;
+    private final String MAPSITE;
     
-    public Site()
+    public MapService()
     {
         getAliases().add("!site");
         getAliases().add("!website");
@@ -25,7 +25,7 @@ public class Site extends BotCommand
         setArgumentsString("");
         setDescription("This goes to our website.");
         
-        WEBSITE = Config.getProperty("website");
+        MAPSITE = Config.getProperty("dynmapservice");
     }
     
     @Override
@@ -36,8 +36,8 @@ public class Site extends BotCommand
         {
             if (getArgs().length == 1)
             {
-                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "All of the server info can be found on our website, at:");
-                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), WEBSITE);
+                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "The map of our server is dynmap powered and can be found at:");
+                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), MAPSITE);
             } else {
                 showUsage();
             }

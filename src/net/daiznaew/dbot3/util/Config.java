@@ -31,6 +31,7 @@ public class Config {
                 configFile.setProperty("network","irc.rizon.net");
                 configFile.setProperty("channel","#ircbottest");
                 configFile.setProperty("bversion","3.0");
+                configFile.setProperty("dynmapservice", "http://snaiperskaya.net/map");
                 
     		//save properties to project root folder
     		configFile.store(new FileOutputStream("config.cfg"), null);
