@@ -19,11 +19,11 @@ public class MapService extends BotCommand
     
     public MapService()
     {
-        getAliases().add("!site");
-        getAliases().add("!website");
+        getAliases().add("!map");
+        getAliases().add("!dynmap");
         setMinAccessLevel(AccessLevel.NORMAL);
         setArgumentsString("");
-        setDescription("This goes to our website.");
+        setDescription("This goes to our dynmap site.");
         
         MAPSITE = Config.getProperty("dynmapservice");
     }
