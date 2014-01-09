@@ -10,6 +10,7 @@ import net.daiznaew.dbot3.Listeners.Commands.PackLink;
 import net.daiznaew.dbot3.Listeners.Commands.ReadLog;
 import net.daiznaew.dbot3.Listeners.Commands.Site;
 import net.daiznaew.dbot3.Listeners.Commands.Tweeting;
+import net.daiznaew.dbot3.Listeners.Commands.GoogleSearch;
 import net.daiznaew.dbot3.Listeners.TwitterFeed;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
 import net.daiznaew.dbot3.Listeners.Commands.MapService;
@@ -32,8 +33,9 @@ public class CommandReferences {
     public static ReadLog commandReadLog = new ReadLog();
     public static Celebration commandCelebrate = new Celebration();
     public static MapService commandMapService = new MapService();
+    public static GoogleSearch commandGoogleSearch = new GoogleSearch();
     
-    public static BotCommand[] commands = {commandMapService, commandCelebrate, commandReadLog, commandLog, commandCalculate, commandDegreesCalc, commandPackLink, commandTweeting, commandTwitterFeed, commandHelp, commandSite, commandCore };
+    public static BotCommand[] commands = {commandGoogleSearch, commandMapService, commandCelebrate, commandReadLog, commandLog, commandCalculate, commandDegreesCalc, commandPackLink, commandTweeting, commandTwitterFeed, commandHelp, commandSite, commandCore };
     
     public static BotCommand[] getCommands()
     {

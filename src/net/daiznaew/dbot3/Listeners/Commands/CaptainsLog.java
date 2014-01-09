@@ -60,7 +60,7 @@ public class CaptainsLog extends BotCommand
                 out.newLine();
                 //prepares for a new write
                 out.close();
-                
+                event.getBot().sendMessage(event.getChannel(), "Log updated.");
             } else {showUsage();}
         }
     }
