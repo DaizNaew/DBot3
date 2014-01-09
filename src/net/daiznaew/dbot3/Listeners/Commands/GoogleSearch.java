@@ -55,8 +55,7 @@ public class GoogleSearch extends BotCommand {
                 String titleresult = results.getResponseData().getResults().get(0).getTitle();
                 String urlresult = results.getResponseData().getResults().get(0).getUrl();
                 
-                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), titleresult);
-                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), urlresult);
+                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Search results for: "+searchquery + "are: " + "Title: "+titleresult+" Url: "+urlresult);
                 
             } else { showUsage(); }
         }
