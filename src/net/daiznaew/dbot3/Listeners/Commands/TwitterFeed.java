@@ -1,4 +1,4 @@
-package net.daiznaew.dbot3.Listeners;
+package net.daiznaew.dbot3.Listeners.Commands;
 
 import java.util.List;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;

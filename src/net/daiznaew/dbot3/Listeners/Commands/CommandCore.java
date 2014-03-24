@@ -37,7 +37,7 @@ public class CommandCore extends BotCommand
         if (performGenericChecks(event.getChannel(), event.getUser(), event.getMessage().split(" ")))
         {
             
-            if (getArgs().length == 4)
+            if (getArgs().length >= 4)
             {
                 
                 String operation = getArgs()[1];

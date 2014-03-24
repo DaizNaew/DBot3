@@ -11,7 +11,7 @@ import net.daiznaew.dbot3.Listeners.Commands.ReadLog;
 import net.daiznaew.dbot3.Listeners.Commands.Site;
 import net.daiznaew.dbot3.Listeners.Commands.Tweeting;
 import net.daiznaew.dbot3.Listeners.Commands.GoogleSearch;
-import net.daiznaew.dbot3.Listeners.TwitterFeed;
+import net.daiznaew.dbot3.Listeners.Commands.TwitterFeed;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
 import net.daiznaew.dbot3.Listeners.Commands.MapService;
 

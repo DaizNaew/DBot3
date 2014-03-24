@@ -6,6 +6,7 @@
 package net.daiznaew.dbot3.Listeners.Commands;
 
 import java.io.*;
+import java.util.Date;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
 import net.daiznaew.dbot3.util.enums.AccessLevel;
 import org.pircbotx.PircBotX;
@@ -44,6 +45,7 @@ public class CaptainsLog extends BotCommand
                 //this is just a copy of the tweeting class, but modified to work with write to file.
                 String quote = "";
                 String user = event.getUser().getNick();
+                Date date = new Date();
                 
                 for (int i = 1; i < getArgs().length; i++)
                 {
@@ -51,11 +53,11 @@ public class CaptainsLog extends BotCommand
                 }
                 quote = quote.substring(0, quote.length());
                 
-                //finds the text to write to
+                //Buffers the text to write and to where
                 out = new BufferedWriter(new FileWriter("captainslogs.txt",true));
                 
                 //writes the message
-                out.write(quote + " !Logged by: " + user +"! ");
+                out.write(quote + " !Logged by: " + user +"! at "+date+" ");
                 //goes to the next line on the text
                 out.newLine();
                 //prepares for a new write
