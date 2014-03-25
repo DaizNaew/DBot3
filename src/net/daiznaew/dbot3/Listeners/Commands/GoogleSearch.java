@@ -6,6 +6,7 @@ package net.daiznaew.dbot3.Listeners.Commands;
  */
 
 import com.google.gson.Gson;
+import java.awt.Color;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
@@ -16,6 +17,7 @@ import net.daiznaew.dbot3.util.enums.ColorFormat;
 import net.daiznaew.dbot3.util.messages.Messages;
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.events.MessageEvent;
+import org.pircbotx.Colors;
 
 public class GoogleSearch extends BotCommand {
     
@@ -55,7 +57,7 @@ public class GoogleSearch extends BotCommand {
                 String titleresult = results.getResponseData().getResults().get(0).getTitle();
                 String urlresult = results.getResponseData().getResults().get(0).getUrl();
                 
-                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Search results for: "+searchquery + "are: " + "Title: "+titleresult+" Url: "+urlresult);
+                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Search results for: "+  searchquery + "are: " + "Title: "+titleresult+" Url: "+Color.MAGENTA+urlresult);
                 
             } else { showUsage(); }
         }
