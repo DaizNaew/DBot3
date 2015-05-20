@@ -40,9 +40,7 @@ public class TwitterFeed extends BotCommand
     {
         if (performGenericChecks(event.getChannel(), event.getUser(), event.getMessage().split(" ")))
         {            
-            if (getArgs().length == 1 )
-            {
-
+            
         ConfigurationBuilder builder = new ConfigurationBuilder();
         
     	builder.setOAuthAccessToken(TwitterReferences.ACCESS_TOKEN);
@@ -53,6 +51,8 @@ public class TwitterFeed extends BotCommand
         OAuthAuthorization auth = new OAuthAuthorization(builder.build());
         Twitter twitter = new TwitterFactory().getInstance(auth);
         
+            if (getArgs().length == 1 )
+            {
         //defines the user to lookup
         String[] srch = new String[] {"DaizNaew"};
 
@@ -64,11 +64,29 @@ public class TwitterFeed extends BotCommand
                     List<Status> statuses = twitter.getUserTimeline(user.getName(), new Paging(1,1));
                         for (Status status3 : statuses)
                         {
-                            Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "@DaizNaew: "+ status3.getText()+" - https://twitter.com/DaizNaew");
+                            Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "@"+srch+": "+ status3.getText()+" - https://twitter.com/"+srch);
                         }
                     }
               }
-            } else { showUsage(); }            
+            } 
+            if (getArgs().length ==2 )
+            {
+                String[] srch = new String[] {getArgs()[1]};
+                
+                ResponseList<User> users = twitter.lookupUsers(srch);
+              for (User user : users) 
+              {
+                    if (user.getStatus() != null)
+                    {
+                    List<Status> statuses = twitter.getUserTimeline(user.getName(), new Paging(1,1));
+                        for (Status status3 : statuses)
+                        {
+                            Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "@"+srch+": "+ status3.getText()+" - https://twitter.com/"+srch);
+                        }
+                    }
+              }
+            }
+            else { showUsage(); }            
         }
     }
 }
