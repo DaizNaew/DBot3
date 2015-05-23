@@ -8,13 +8,13 @@ import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
-import net.daiznaew.dbot3.util.references.References;
+import net.daiznaew.dbot3.util.twitter.TwitterReferences;
 
 public class TwitterAuth {
 
 	public static void main(String[] args) throws Exception {
  		Twitter twitter = new TwitterFactory().getInstance();
-		twitter.setOAuthConsumer(References.CONSUMER_KEY, References.CONSUMER_SECRET);
+		twitter.setOAuthConsumer(TwitterReferences.CONSUMER_KEY, TwitterReferences.CONSUMER_SECRET);
 		RequestToken requestToken = twitter.getOAuthRequestToken();
 		AccessToken accessToken = null;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
