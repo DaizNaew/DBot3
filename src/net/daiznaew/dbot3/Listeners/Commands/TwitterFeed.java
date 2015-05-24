@@ -64,29 +64,32 @@ public class TwitterFeed extends BotCommand
                     List<Status> statuses = twitter.getUserTimeline(user.getName(), new Paging(1,1));
                         for (Status status3 : statuses)
                         {
-                            Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "@"+srch+": "+ status3.getText()+" - https://twitter.com/"+srch);
+                            Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), status3.getText());
                         }
                     }
               }
             } 
-            if (getArgs().length ==2 )
+            else if (getArgs().length ==2 )
             {
                 String[] srch = new String[] {getArgs()[1]};
                 
                 ResponseList<User> users = twitter.lookupUsers(srch);
-              for (User user : users) 
-              {
+                for (User user : users) 
+                {
                     if (user.getStatus() != null)
                     {
                     List<Status> statuses = twitter.getUserTimeline(user.getName(), new Paging(1,1));
                         for (Status status3 : statuses)
                         {
-                            Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "@"+srch+": "+ status3.getText()+" - https://twitter.com/"+srch);
+                            Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), status3.getText());
                         }
                     }
-              }
+                }
             }
-            else { showUsage(); }            
+            else
+            {
+                showUsage();
+            }
         }
     }
 }
