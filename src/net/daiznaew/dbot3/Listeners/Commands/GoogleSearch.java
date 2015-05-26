@@ -53,7 +53,7 @@ public class GoogleSearch extends BotCommand {
                 
                 Elements links = Jsoup.connect(google + URLEncoder.encode(search, charset)).userAgent(userAgent).get().select("li.g>h3>a");
                 
-                for (Element link : links)
+                for (Element link : links) 
                 {
                     String title = link.text();
                     String url = link.absUrl("href"); // Google returns URLs in format "http://www.google.com/url?q=<url>&sa=U&ei=<someKey>".
@@ -63,9 +63,8 @@ public class GoogleSearch extends BotCommand {
                     {
                         continue; // Ads/news/etc.
                     }
-                    
 
-                    Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Search results for: "+  search + "Title: "+title+" Url: "+url);
+                    Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Search results for: "+  search + "Title: "+title+" Url: "+Color.MAGENTA+url);
                 
                 } 
             } else { showUsage(); }
