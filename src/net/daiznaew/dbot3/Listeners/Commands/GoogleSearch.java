@@ -5,11 +5,8 @@ package net.daiznaew.dbot3.Listeners.Commands;
  * @author Daiz
  */
 
-import com.google.gson.Gson;
 import java.awt.Color;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.net.URL;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import net.daiznaew.dbot3.Listeners.core.BotCommand;
 import net.daiznaew.dbot3.util.enums.AccessLevel;
@@ -17,7 +14,9 @@ import net.daiznaew.dbot3.util.enums.ColorFormat;
 import net.daiznaew.dbot3.util.messages.Messages;
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.events.MessageEvent;
-import org.pircbotx.Colors;
+import org.jsoup.*;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 public class GoogleSearch extends BotCommand {
     
@@ -35,30 +34,39 @@ public class GoogleSearch extends BotCommand {
         setArgumentsString("<Search query>");
     }
     
+    @Override
     public void onMessage(MessageEvent<PircBotX> event) throws Exception
     {
         if (performGenericChecks(event.getChannel(), event.getUser(), event.getMessage().split(" ")))
         {
             if (getArgs().length >= 2 ) 
             {
-                String google = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=";
+                String google = "http://www.google.com/search?q=";
                 String charset = "UTF-8";
-                String searchquery = "";
+                String search = "";
+                String userAgent = "DBot 3 (+https://github.com/DaizNaew/DBot3)";
+                
                 for (int i = 1; i < getArgs().length; i++)
                 {
-                    searchquery += getArgs()[i] + " ";
+                    search += getArgs()[i] + " ";
                 }
-                searchquery = searchquery.substring(0, searchquery.length());
                 
-                URL url = new URL(google + URLEncoder.encode(searchquery, charset));
-                Reader reader = new InputStreamReader(url.openStream(), charset);
-                GoogleIntegration results = new Gson().fromJson(reader, GoogleIntegration.class);
+                Elements links = Jsoup.connect(google + URLEncoder.encode(search, charset)).userAgent(userAgent).get().select("li.g>h3>a");
                 
-                String titleresult = results.getResponseData().getResults().get(0).getTitle();
-                String urlresult = results.getResponseData().getResults().get(0).getUrl();
+                for (Element link : links) 
+                {
+                    String title = link.text();
+                    String url = link.absUrl("href"); // Google returns URLs in format "http://www.google.com/url?q=<url>&sa=U&ei=<someKey>".
+                    url = URLDecoder.decode(url.substring(url.indexOf('=') + 1, url.indexOf('&')), "UTF-8");
+
+                    if (!url.startsWith("http")) 
+                    {
+                        continue; // Ads/news/etc.
+                    }
+
+                    Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Search results for: "+  search + "Title: "+title+" Url: "+Color.MAGENTA+url);
                 
-                Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Search results for: "+  searchquery + "Title: "+titleresult+" Url: "+Color.MAGENTA+urlresult);
-                
+                } 
             } else { showUsage(); }
         }
     }
