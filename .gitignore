@@ -2,4 +2,4 @@
 /dist/
 /nbproject/
 /captainslogs.txt
-/src/net/daiznaew/dbot3/util/twitter/
+/src/net/daiznaew/dbot3/Listeners/Commands/TimedTwitterFeed.java
