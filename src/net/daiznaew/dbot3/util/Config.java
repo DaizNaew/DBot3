@@ -23,7 +23,7 @@ public class Config {
         {
     		//set the properties value
                 //this should obviously be null for release.
-    		configFile.setProperty("website", "http://snaiperskaya.net");
+    		configFile.setProperty("website", "http://www.jgl-uk.com");
                 configFile.setProperty("bpassword","dbotistrueforceofbux");
                 configFile.setProperty("bname","DBot3");
                 configFile.setProperty("buname","DBot3");

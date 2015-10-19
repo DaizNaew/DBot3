@@ -31,7 +31,7 @@ public class DaizBot
     //disabled until further notice
     
         //Test feature
-    private static String[] Channels = {"#snftb","#snterra"};
+    private static String[] Channels = {"#jgluk"};
     
 
 

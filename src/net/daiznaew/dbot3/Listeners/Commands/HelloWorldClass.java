@@ -43,7 +43,9 @@ public class HelloWorldClass extends BotCommand {
         {
                 //in here you do the response code. 
                 //example:
-
+            
+            Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Hello World");
+            
                 /*
                  * //Messages.respond is a pull from the Messages class, this is to customize various messages, responds, actions etc.
                  * 
@@ -51,7 +53,7 @@ public class HelloWorldClass extends BotCommand {
                  * //second ColorFormat.<CODE> is to colour the responce, theese can be customized in ColorFormat.java
                  * //third getUser() is to check the user who sent it is the same as the one to refer to, and will return the name of the user in the repsonce.
                  * //last is the responce, "<message>" for a message, or a String for more advanced responce
-                 * Messages.respond(getChannel(), ColorFormat.NORMAL, getUser(), "Twitter updated successfully!");
+                 * 
                  * 
                  * 
                  */
