@@ -3,3 +3,4 @@
 /nbproject/
 /captainslogs.txt
 /src/net/daiznaew/dbot3/Listeners/Commands/TimedTwitterFeed.java
+src/net/daiznaew/dbot3/util/twitter/TwitterReferences.java
